@@ -21,6 +21,11 @@
             "UnauthRoleName": "amplify4-dev-20190525153912-unauthRole",
             "StackName": "amplify4-dev-20190525153912",
             "StackId": "arn:aws:cloudformation:us-east-1:533107625001:stack/amplify4-dev-20190525153912/c5ec2ad0-7f24-11e9-9ce2-1235152b041e"
+        },
+        "categories": {
+            "auth": {
+                "amplify4454ad4fd": {}
+            }
         }
     }
 }
