@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
       this.signedIn = authState.state === 'signedIn';
       if (!authState.user) {
         this.user = null;
+        console.log('not signed in anymore');
       } else {
         console.log(this.user);
         this.user = authState.user;

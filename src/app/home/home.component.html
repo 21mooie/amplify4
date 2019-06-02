@@ -1,3 +1,4 @@
 <p>home</p>
-<button *ngIf="signedIn" (click)="store()">Store Data</button>
-<button *ngIf="signedIn" (click)=get()>Show stored data</button>
+<button (click)="store()">Store Data</button>
+<button (click)=get()>Show stored data</button>
+<button (click)="signOut()">Sign out</button>

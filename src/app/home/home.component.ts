@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AmplifyService } from 'aws-amplify-angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,21 +12,11 @@ export class HomeComponent implements OnInit {
   user: any;
 
   constructor(
-    private amplifyService: AmplifyService
+    private amplifyService: AmplifyService,
+    private router: Router
   ) { }
 
-  ngOnInit() {
-    this.amplifyService.authStateChange$
-    .subscribe(authState => {
-      this.signedIn = authState.state === 'signedIn';
-      if (!authState.user) {
-        this.user = null;
-      } else {
-        console.log(this.user);
-        this.user = authState.user;
-      }
-    });
-  }
+  ngOnInit() {}
 
   store() {
     console.log('button click');
@@ -50,6 +41,12 @@ export class HomeComponent implements OnInit {
       request.send()
     })
     .catch(err => console.log(err));
+  }
+
+  signOut() {
+    let user = this.user;
+    this.amplifyService.setAuthState({ state: 'signIn', user });
+    this.router.navigate(['']);
   }
 
 }
