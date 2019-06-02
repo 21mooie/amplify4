@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AmplifyService } from 'aws-amplify-angular';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
+  selector: 'login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -31,7 +32,10 @@ export class LoginComponent implements OnInit {
     ],
     hiddenDefaults: ['phone_number']
   }
-  constructor( private amplifyService: AmplifyService ) {}
+  constructor( 
+    private amplifyService: AmplifyService,
+    private router: Router 
+  ) {}
 
   ngOnInit() {
     this.amplifyService.authStateChange$
@@ -43,6 +47,7 @@ export class LoginComponent implements OnInit {
         console.log(this.user);
         this.user = authState.user;
         this.greeting = "Hello " + this.user.username;
+        this.router.navigate(['/home'])
       }
     });
   }
