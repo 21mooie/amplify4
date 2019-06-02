@@ -51,29 +51,4 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-
-  store() {
-    console.log('button click');
-    this.amplifyService.storage().put('test.txt', 'Hello1')
-    .then (result => console.log(result)) // {key: "test.txt"}
-    .catch(err => console.log(err));
-  }
-
-  get() {
-    this.amplifyService.storage().get('test.txt')
-    .then(result => {
-      console.log(result)
-      var request = new XMLHttpRequest()
-
-      request.open('GET', result, true)
-      request.onload = function() {
-        // Begin accessing JSON data here
-        
-        console.log(this.response);
-        
-      }
-      request.send()
-    })
-    .catch(err => console.log(err));
-  }
 }
