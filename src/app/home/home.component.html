@@ -2,3 +2,4 @@
 <button (click)="store()">Store Data</button>
 <button (click)=get()>Show stored data</button>
 <button (click)="signOut()">Sign out</button>
+<p *ngIf="user">{{user.attributes.name}}</p>

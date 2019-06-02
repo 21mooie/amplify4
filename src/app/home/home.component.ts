@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AmplifyService } from 'aws-amplify-angular';
 import { Router } from '@angular/router';
+import { Auth } from 'aws-amplify';
 
 @Component({
   selector: 'app-home',
@@ -45,7 +46,10 @@ export class HomeComponent implements OnInit {
 
   signOut() {
     let user = this.user;
-    this.amplifyService.setAuthState({ state: 'signIn', user });
+    Auth.signOut()
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
+    console.log(this.user);
     this.router.navigate(['']);
   }
 
