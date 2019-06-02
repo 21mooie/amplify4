@@ -1,4 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <amplify-authenticator [signUpConfig]="signUpConfig"></amplify-authenticator>
-
+<button *ngIf="signedIn" (click)="store()">Store Data</button>
+<button *ngIf="signedIn" (click)=get()>Show stored data</button>
 <router-outlet></router-outlet>
