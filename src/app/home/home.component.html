@@ -3,3 +3,18 @@
 <button (click)=get()>Show stored data</button>
 <button (click)="signOut()">Sign out</button>
 <p *ngIf="user">{{user.attributes.name}}</p>
+<!-- <amplify-s3-album 
+    [path]="pics/Columbine.jpg" 
+    (selected)="onAlbumImageSelected($event)"
+    [options]="{'level': 'protected'}">
+</amplify-s3-album> -->
+<amplify-s3-image [path]="url" 
+    [options]="{'level': 'protected'}">
+</amplify-s3-image>
+<amplify-photo-picker 
+    path="pics"
+    (picked)="onImagePicked($event)"
+    (loaded)="onImageLoaded($event)"
+    (uploaded)="onImageUploaded($event)"
+    [storageOptions]="{'level': 'protected'}">
+</amplify-photo-picker>

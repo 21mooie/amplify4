@@ -11,13 +11,16 @@ import { Auth } from 'aws-amplify';
 export class HomeComponent implements OnInit {
   signedIn: boolean;
   user: any;
+  url: string;
 
   constructor(
     private amplifyService: AmplifyService,
     private router: Router
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.url = 'pics/Columbine.jpg'
+  }
 
   store() {
     console.log('button click');
@@ -51,6 +54,20 @@ export class HomeComponent implements OnInit {
       .catch(err => console.log(err));
     console.log(this.user);
     this.router.navigate(['']);
+  }
+
+  onImagePicked(e) {
+    console.log('picked');
+  }
+
+  onImageLoaded(e) {
+    console.log('loaded');
+    
+  }
+
+  onImageUploaded(e) {
+    console.log(e)
+    this.url = e.key;
   }
 
 }
